@@ -1,0 +1,26 @@
+https://reedrehg.medium.com/easier-odoo-development-278bbaab38c8
+
+
+# Using Ubuntu / Debian
+$ sudo apt install docker docker-compose
+
+
+#-----------------------sample docker file-----------
+FROM odoo:10.0
+
+RUN touch /var/log/odoo.log
+RUN git clone https://github.com/me/my_addons.git /opt/odoo/addons/my_addons
+#-----------------------
+
+
+How to Do a Clean Restart of a Docker Instance
+
+docker-compose down
+
+docker rm -f $(docker ps -a -q)
+
+docker volume rm $(docker volume ls -q)
+
+docker-compose up -d
+
+docker-compose exec -it web /bin/bash

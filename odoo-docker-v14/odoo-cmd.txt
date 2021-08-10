@@ -1,0 +1,36 @@
+--for development mode 14 bf install module
+
+web?debug=1
+
+
+https://dev.to/alfadil/run-odoo-in-docker-for-local-development-192i
+
+
+
+Custom addons
+ทดลองสร้าง Module ขึ้นมาใหม่ในชื่อ phone book
+
+The addons folder contains custom addons. Just put your custom addons if you have any.
+
+Create new module "phonebook" by command
+
+ใช้คำสั่ง docker ดังนี้
+
+docker exec -t odoo odoo scaffold /mnt/extra-addons/phonebook
+
+5
+ถ้าหาชื่อไม่เจอให้ docker ps
+แล้ว copy id มาวางแทน
+docker exec -t {docker image id} odoo scaffold /mnt/extra-addons/mymodule
+docker exec -t 0495c7e011e2 odoo scaffold /mnt/extra-addons/mymodule
+
+
+docker exec เพื่อเข้าไปใน shell.
+
+docker exec --user 0 -ti 0495c7e011e2 bash
+
+
+$ docker exec --user 0 0495c7e011e2 odoo scaffold mymodule /mnt/extra-addons
+$ ls addons/mymodule/
+
+
